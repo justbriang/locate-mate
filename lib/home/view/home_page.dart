@@ -25,6 +25,8 @@ class HomeView extends StatelessWidget {
   GoogleMapController? mapController;
   final double _currentZoom = 12;
 
+  final List<String> _chipLabels = ['All', 'People', 'Items'];
+
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
   }
@@ -37,8 +39,6 @@ class HomeView extends StatelessWidget {
     mapController?.animateCamera(CameraUpdate.zoomOut());
   }
 
-  final int _selectedChip = 0;
-  final List<String> _chipLabels = ['All', 'People', 'Items'];
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -389,7 +389,7 @@ class HomeView extends StatelessWidget {
                                     const Icon(
                                       Icons.send,
                                       color: Colors.blue,
-                                    ), // Use `airplanemode_active` for better semantics
+                                    ),
                                   ],
                                 ),
                               ],

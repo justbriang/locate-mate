@@ -16,7 +16,7 @@ class BaseItemLocationRepository implements ItemLocationRepository {
   Future<List<ItemLocation>> getItemLocations() async {
     final response = await _service.getItemLocations();
 
-    if (response.isSuccessful && response.bodyString != null) {
+    if (response.isSuccessful && response.bodyString.isNotEmpty) {
       final dataList = jsonDecode(response.bodyString) as List<dynamic>;
       return dataList
           .map((json) => ItemLocation.fromJson(json as Map<String, dynamic>))
