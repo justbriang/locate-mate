@@ -14,22 +14,24 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => ItemsLocationCubit()..loadItemLocation(),
-      child: HomeView(),
+      child: const HomeView(),
     );
   }
 }
 
-class HomeView extends StatelessWidget {
-  HomeView({super.key});
+class HomeView extends StatefulWidget {
+  const HomeView({super.key});
 
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
   GoogleMapController? mapController;
+
   final double _currentZoom = 12;
 
   final List<String> _chipLabels = ['All', 'People', 'Items'];
-
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
-  }
 
   void _zoomIn() {
     mapController?.animateCamera(CameraUpdate.zoomIn());
@@ -49,7 +51,9 @@ class HomeView extends StatelessWidget {
             return Stack(
               children: <Widget>[
                 GoogleMap(
-                  onMapCreated: _onMapCreated,
+                  onMapCreated: (GoogleMapController controller) {
+                    mapController = controller;
+                  },
                   initialCameraPosition: CameraPosition(
                     target: const LatLng(37.77483, -122.41942),
                     zoom: _currentZoom,
@@ -217,7 +221,7 @@ class HomeView extends StatelessWidget {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
+                              MaterialPageRoute<ItemLocation>(
                                 builder: (context) => ProfileScreen(
                                   itemLocation: state.filteredLocations[index],
                                 ),
@@ -310,7 +314,7 @@ class HomeView extends StatelessWidget {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
+                              MaterialPageRoute<ItemLocation>(
                                 builder: (context) => ProfileScreen(
                                   itemLocation: state.filteredLocations[index],
                                 ),
