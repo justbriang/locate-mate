@@ -18,7 +18,7 @@ final class _$ApiService extends ApiService {
 
   @override
   Future<Response<dynamic>> getItemLocations() {
-    final Uri $url = Uri.parse('/UCR3');
+    final Uri $url = Uri.parse('365356d4-53d1-4a33-b144-5f4a5c62a85e');
     final Request $request = Request(
       'GET',
       $url,

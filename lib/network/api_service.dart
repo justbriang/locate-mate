@@ -9,7 +9,7 @@ part 'api_service.chopper.dart';
 @ChopperApi()
 abstract class ApiService extends ChopperService {
   // Mining
-  @Get(path: 'UCR3')
+  @Get(path: '365356d4-53d1-4a33-b144-5f4a5c62a85e')
   Future<Response> getItemLocations();
 
   static _$ApiService create() {

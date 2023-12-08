@@ -18,17 +18,21 @@ dependencies:
   google_maps_flutter: ^2.5.0
   http: ^1.1.2
   intl: ^0.18.0
+  mockito: ^5.4.3
 
 
 dev_dependencies:
   bloc_test: ^9.1.4
+
   build_runner: ^2.4.7
   chopper_generator: ^7.0.6
   flutter_test:
     sdk: flutter
   json_serializable: ^6.7.1
   mocktail: ^1.0.0
+  test: ^1.24.9
   very_good_analysis: ^5.1.0
+  
   
 
 flutter:
