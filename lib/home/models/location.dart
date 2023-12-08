@@ -3,7 +3,6 @@ part 'location.g.dart';
 
 @JsonSerializable()
 class Location {
-
   const Location({
     required this.name,
     required this.since,
