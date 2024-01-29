@@ -9,7 +9,7 @@ environment:
 dependencies:
   bloc: ^8.1.2
   cached_network_image: ^3.3.0
-  chopper: ^7.0.9
+  chopper: ^7.1.1
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.3
